@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package social;
+
+service SocialService {
+  rpc CreateUser (UserRequest) returns (UserResponse);
+  rpc GetUser (UserRequest) returns (UserResponse);
+  rpc CreatePost (PostRequest) returns (PostResponse);
+  rpc GetPost (PostRequest) returns (PostResponse);
+}
+
+message UserRequest {
+  string id = 1; // For GetUser
+  string name = 2;
+  string email = 3;
+}
+
+message UserResponse {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message PostRequest {
+  string id = 1; // For GetPost
+  string user = 2;
+  string content = 3;
+}
+
+message PostResponse {
+  string id = 1;
+  string user = 2;
+  string content = 3;
+}
